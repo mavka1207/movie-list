@@ -127,7 +127,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                       vertical: 6.0,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.amber,
+                      color: const Color.fromARGB(255, 244, 180, 77),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
