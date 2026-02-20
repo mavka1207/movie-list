@@ -161,6 +161,7 @@ class MovieListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: const Color.fromARGB(255, 6, 6, 6),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: InkWell(
         onTap: onTap,
@@ -217,20 +218,19 @@ class MovieListTile extends StatelessWidget {
                     if (movie.comingSoon)
                       Container(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0,
-                          vertical: 4.0,
+                          horizontal: 12.0,
+                          vertical: 8.0,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.orange[100],
-                          border: Border.all(color: Colors.orange),
-                          borderRadius: BorderRadius.circular(4),
+                          color: Colors.orange,
+                          borderRadius: BorderRadius.circular(6),
                         ),
                         child: const Text(
-                          'Coming Soon',
+                          '🎬 Coming Soon',
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 13,
                             fontWeight: FontWeight.bold,
-                            color: Colors.deepOrange,
+                            color: Colors.white,
                           ),
                         ),
                       )

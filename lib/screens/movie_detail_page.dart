@@ -252,6 +252,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   }
 
   Widget _buildDetailRow(String label, String value) {
+    final displayValue = value == 'N/A' ? '...' : value;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -259,7 +260,8 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
           '$label: ',
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
-        Expanded(child: Text(value, style: const TextStyle(fontSize: 16))),
+        Expanded(
+            child: Text(displayValue, style: const TextStyle(fontSize: 16))),
       ],
     );
   }
