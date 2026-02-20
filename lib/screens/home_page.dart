@@ -13,11 +13,13 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _searchController = TextEditingController();
   late FocusNode _searchFocusNode;
   List<Movie> _filteredMovies = [];
+  late Future<List<Movie>> _moviesFuture;
 
   @override
   void initState() {
     super.initState();
     _searchFocusNode = FocusNode();
+    _moviesFuture = loadMovies();
     _searchController.addListener(() {
       setState(() {});
     });
@@ -54,7 +56,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
       body: FutureBuilder<List<Movie>>(
-        future: loadMovies(),
+        future: _moviesFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -79,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                 child: TextField(
                   controller: _searchController,
                   focusNode: _searchFocusNode,
-                  autofocus: true,
+                  autofocus: false,
                   onChanged: (query) => _filterMovies(allMovies, query),
                   textInputAction: TextInputAction.search,
                   decoration: InputDecoration(
